@@ -71,6 +71,25 @@ document.getElementsByClassName('image-container')[activeImg].classList.add('act
 
 document.getElementsByClassName('thumb')[activeImg].classList.add('active');
 
+// Click event for next image
+
+const next = document.querySelector('.next');
+
+next.addEventListener('click', function () {
+    // Update img counter
+    activeImg++;
+    // Set "active image", but first reset his native active class
+    document.querySelector('image-container.active').classList.remove('active');
+    // Set "active image" on the next (after click) img
+    document.querySelector('image-container')[activeImg].classList.add('active');
+    // Set "active thumb", but first reset his native active class
+    document.querySelector('thumbs.active').classList.remove('active');
+    // Set "active thumb" on the next (after click) thumb
+    document.querySelector('thumbs').classList.add('active');
+
+
+})
+
 
 
 
