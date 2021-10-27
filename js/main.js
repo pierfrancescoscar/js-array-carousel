@@ -96,6 +96,32 @@ const next = document.querySelector('.next');
 
 })
 
+// Click event for previous image
+
+const prev = document.querySelector('.prev');
+
+    prev.addEventListener('click', function () {
+
+    // Update img counter, loop for next and previous navigation
+    if (activeImg === 0) {
+        activeImg = 4;
+     } else {
+        activeImg--;
+    }
+
+    // Set "active image", but first reset his native active class
+    document.querySelector('.image-container.active').classList.remove('active');
+    // Set "active image" on the next (after click) img
+    document.getElementsByClassName('image-container')[activeImg].classList.add('active');
+    // Set "active thumb", but first reset his native active class
+    document.querySelector('.thumb.active').classList.remove('active');
+    // Set "active thumb" on the next (after click) thumb
+    document.getElementsByClassName('thumb')[activeImg].classList.add('active');
+
+})
+
+
+
 
 
 
