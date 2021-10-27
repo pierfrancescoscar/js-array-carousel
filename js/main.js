@@ -56,13 +56,14 @@ for (let i = 0; i < imageCollection.length; i++) {
                     <p>${textCollection[i]}</p>
                 </div>
             </div>`
+        // Thumbs
+    thumbs.innerHTML +=
+        `<div class="thumb">
+        <img src="${imageCollection[i]}" alt="${titleCollection[i]}">
+        </div>`
 }
 
-// Thumbs
-    thumbs.innerHTML +=
-    `<div class="thumb active">
-    <img src="${imageCollection[i]}" alt="${titleCollection[i]}">
-    </div>`
+
 
 // Set "active" mode for imgs and thumbs
 
