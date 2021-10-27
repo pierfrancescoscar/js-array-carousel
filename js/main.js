@@ -43,6 +43,7 @@ const textCollection = [
 // Ref
 const imgs = document.querySelector('.images');
 const thumbs = document.querySelector('.thumbs');
+let activeImg = 1;
 
 // Cycle for imgs and text
 
@@ -63,7 +64,16 @@ for (let i = 0; i < imageCollection.length; i++) {
     <img src="${imageCollection[i]}" alt="${titleCollection[i]}">
     </div>`
 
-    
+// Set "active" mode for imgs and thumbs
+
+document.getElementsByClassName('image-container')[activeImg].classList.add('active');
+
+document.getElementsByClassName('thumb')[activeImg].classList.add('active');
+
+
+
+
+
 
 
 
