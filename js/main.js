@@ -42,7 +42,7 @@ const textCollection = [
 
 // Ref
 const imgs = document.querySelector('.images');
-const thumbs = document.querySelector('.thumbs');
+const thumbRef = document.querySelector('.thumbs');
 let activeImg = 1;
 
 // Cycle for imgs and text
@@ -57,7 +57,7 @@ for (let i = 0; i < imageCollection.length; i++) {
                 </div>
             </div>`
         // Thumbs
-    thumbs.innerHTML +=
+    thumbRef.innerHTML +=
         `<div class="thumb">
         <img src="${imageCollection[i]}" alt="${titleCollection[i]}">
         </div>`
@@ -75,18 +75,24 @@ document.getElementsByClassName('thumb')[activeImg].classList.add('active');
 
 const next = document.querySelector('.next');
 
-next.addEventListener('click', function () {
-    // Update img counter
-    activeImg++;
-    // Set "active image", but first reset his native active class
-    document.querySelector('image-container.active').classList.remove('active');
-    // Set "active image" on the next (after click) img
-    document.querySelector('image-container')[activeImg].classList.add('active');
-    // Set "active thumb", but first reset his native active class
-    document.querySelector('thumbs.active').classList.remove('active');
-    // Set "active thumb" on the next (after click) thumb
-    document.querySelector('thumbs').classList.add('active');
+    next.addEventListener('click', function () {
 
+    
+    // Update img counter, loop for next and previous navigation
+    if (activeImg === imageCollection.length - 1) {
+        activeImg = 0;
+    } else {
+        activeImg++;
+    }
+
+    // Set "active image", but first reset his native active class
+    document.querySelector('.image-container.active').classList.remove('active');
+    // Set "active image" on the next (after click) img
+    document.getElementsByClassName('image-container')[activeImg].classList.add('active');
+    // Set "active thumb", but first reset his native active class
+    document.querySelector('.thumb.active').classList.remove('active');
+    // Set "active thumb" on the next (after click) thumb
+    document.getElementsByClassName('thumb')[activeImg].classList.add('active');
 
 })
 
